@@ -46,7 +46,6 @@ defmodule Logster.Plugs.Logger do
         |> Keyword.put(:duration, formatted_duration(duration))
         |> Keyword.put(:state, conn.state)
         |> Keyword.merge(headers(conn.req_headers, Application.get_env(:logster, :allowed_headers, @default_allowed_headers)))
-        |> Keyword.merge(Logger.metadata())
         |> formatter.format
       end
       conn
